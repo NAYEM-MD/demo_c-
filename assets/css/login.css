@@ -1,0 +1,130 @@
+body {
+    background-color: #f6f7f8;
+    font-family: "IBM Plex Sans", sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+}
+
+.container {
+    background: white;
+    padding: 40px;
+    border-radius: 4px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 400px;
+}
+
+.logo-section {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.logo {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: #FF4500; /* Fallback if no image */
+    margin-bottom: 10px;
+}
+
+h1 {
+    font-size: 24px;
+    font-weight: 500;
+    margin: 10px 0 5px;
+    color: #1c1c1c;
+}
+
+.subtitle {
+    color: #7c7c7c;
+    font-size: 14px;
+    margin: 0;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+label {
+    display: block;
+    font-size: 12px;
+    font-weight: 700;
+    color: #1c1c1c;
+    margin-bottom: 5px;
+    text-transform: uppercase;
+}
+
+input[type="text"],
+input[type="password"] {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #edeff1;
+    border-radius: 4px;
+    background-color: #f6f7f8;
+    font-size: 14px;
+    box-sizing: border-box;
+    transition: all 0.2s;
+}
+
+input:focus {
+    background-color: #fff;
+    border-color: #0079d3;
+    outline: none;
+}
+
+.login-btn {
+    width: 100%;
+    padding: 12px;
+    background-color: #FF4500;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-size: 14px;
+    font-weight: 700;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+.login-btn:hover {
+    background-color: #d93a00;
+}
+
+.footer-links {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 14px;
+}
+
+.forgot-password {
+    color: #FF4500;
+    text-decoration: none;
+    display: block;
+    margin-bottom: 10px;
+}
+
+.create-account {
+    color: #FF4500;
+    text-decoration: none;
+    font-weight: 700;
+}
+
+.legal {
+    text-align: center;
+    margin-top: 30px;
+    font-size: 12px;
+    color: #7c7c7c;
+}
+
+.legal a {
+    color: #7c7c7c;
+    text-decoration: none;
+}
+
+.error-msg {
+    color: #ea0027;
+    font-size: 14px;
+    margin-bottom: 20px;
+    text-align: center;
+}

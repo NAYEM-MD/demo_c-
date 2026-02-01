@@ -1,0 +1,182 @@
+/* Global Styles */
+:root {
+    /* Light Mode (Default) */
+    --bg-body: #DAE0E6;
+    --bg-card: #FFFFFF;
+    --bg-header: #FFFFFF;
+    --bg-input: #f6f7f8;
+    --bg-hover: #edeff1;
+    --text-primary: #1c1c1c;
+    --text-secondary: #878a8c;
+    --border-color: #edeff1;
+    --border-color-strong: #ccc;
+    --accent-color: #0079d3;
+    --icon-color: #1c1c1c;
+    --vote-bg: #f8f9fa;
+    --shadow-color: rgba(0, 0, 0, 0.1);
+    
+    /* Poll Colors */
+    --poll-bg: #d1ecf1;
+    --poll-text: #0c5460;
+    --poll-option-bg: #ffffff;
+    --poll-progress-bg: #bee5eb;
+}
+
+[data-theme="dark"] {
+    /* Dark Mode */
+    --bg-body: #030303;
+    --bg-card: #1A1A1B;
+    --bg-header: #1A1A1B;
+    --bg-input: #272729;
+    --bg-hover: #2D2D2E;
+    --text-primary: #D7DADC;
+    --text-secondary: #818384;
+    --border-color: #343536;
+    --border-color-strong: #343536;
+    --accent-color: #D7DADC; /* White-ish for icons in dark mode usually, or keep blue */
+    --icon-color: #D7DADC;
+    --vote-bg: #151516;
+    --shadow-color: rgba(255, 255, 255, 0.05);
+    
+    /* Poll Colors */
+    --poll-bg: #0e2a33;
+    --poll-text: #bee5eb;
+    --poll-option-bg: #272729;
+    --poll-progress-bg: #15454f;
+}
+
+body {
+    font-family: "IBM Plex Sans", sans-serif;
+    background-color: var(--bg-body);
+    color: var(--text-primary);
+    margin: 0;
+    padding-top: 50px; /* For fixed header */
+}
+
+/* Header Styles */
+.app-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 48px;
+    background: var(--bg-header);
+    border-bottom: 1px solid var(--border-color);
+    display: flex;
+    align-items: center;
+    padding: 0 20px;
+    z-index: 1000;
+}
+
+.header-left {
+    display: flex;
+    align-items: center;
+    min-width: 200px;
+}
+
+.logo-link {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: inherit;
+}
+
+.header-logo {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    margin-right: 8px;
+    background: #FF4500;
+}
+
+.logo-text {
+    font-weight: 700;
+    font-size: 18px;
+    display: none; /* Hidden on small screens */
+    color: var(--text-primary);
+}
+
+@media (min-width: 768px) {
+    .logo-text {
+        display: block;
+    }
+}
+
+.header-center {
+    flex-grow: 1;
+    max-width: 600px;
+    margin: 0 20px;
+}
+
+.search-bar input {
+    width: 100%;
+    padding: 8px 16px;
+    border-radius: 20px;
+    border: 1px solid var(--border-color);
+    background-color: var(--bg-input);
+    color: var(--text-primary);
+    font-size: 14px;
+}
+
+.search-bar input:focus {
+    background-color: var(--bg-card);
+    border-color: #0079d3;
+    outline: none;
+}
+
+.header-right {
+    display: flex;
+    align-items: center;
+    margin-left: auto;
+}
+
+.create-post-btn {
+    display: flex;
+    align-items: center;
+    padding: 6px 16px;
+    border-radius: 20px;
+    font-weight: 700;
+    font-size: 14px;
+    text-decoration: none;
+    color: var(--text-primary);
+    transition: background 0.2s;
+    margin-right: 16px;
+}
+
+.create-post-btn:hover {
+    background-color: var(--bg-hover);
+}
+
+.plus-icon {
+    font-size: 20px;
+    margin-right: 4px;
+    line-height: 1;
+}
+
+.user-actions {
+    display: flex;
+    align-items: center;
+    gap: 8px; /* Add some space between icons */
+}
+
+.user-actions .icon-btn {
+    width: 32px;
+    height: 32px;
+    display: inline-flex; /* Changed from flex to inline-flex for better safety */
+    align-items: center;
+    justify-content: center;
+    border-radius: 4px;
+    color: var(--icon-color);
+    text-decoration: none;
+    position: relative;
+}
+
+.user-actions .icon-btn:hover {
+    background-color: var(--bg-hover);
+}
+
+.icon {
+    width: 20px;
+    height: 20px;
+    fill: currentColor;
+}

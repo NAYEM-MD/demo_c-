@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns="https://jakarta.ee/xml/ns/jakartaee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="https://jakarta.ee/xml/ns/jakartaee https://jakarta.ee/xml/ns/jakartaee/web-app_6_0.xsd"
+         version="6.0"
+         metadata-complete="true"> <!-- Disable scanning, use explicit mappings -->
+
+    <display-name>Galaxy BBS</display-name>
+    <!-- Force Reload 2026-01-31-2 -->
+
+    <welcome-file-list>
+        <welcome-file>index.jsp</welcome-file>
+    </welcome-file-list>
+
+    <!-- Servlet Definitions -->
+    <servlet>
+        <servlet-name>AuthServlet</servlet-name>
+        <servlet-class>controller.AuthServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>PostServlet</servlet-name>
+        <servlet-class>controller.PostServlet</servlet-class>
+        <multipart-config>
+            <file-size-threshold>2097152</file-size-threshold> <!-- 2MB -->
+            <max-file-size>10485760</max-file-size> <!-- 10MB -->
+            <max-request-size>52428800</max-request-size> <!-- 50MB -->
+        </multipart-config>
+    </servlet>
+    <servlet>
+        <servlet-name>CommentServlet</servlet-name>
+        <servlet-class>controller.CommentServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>NotificationServlet</servlet-name>
+        <servlet-class>controller.NotificationServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>PollServlet</servlet-name>
+        <servlet-class>controller.PollServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>VoteServlet</servlet-name>
+        <servlet-class>controller.VoteServlet</servlet-class>
+    </servlet>
+
+    <!-- Servlet Mappings: exact paths so /auth/login.jsp is served by JSP, not AuthServlet (avoids infinite forward loop) -->
+    <servlet-mapping>
+        <servlet-name>AuthServlet</servlet-name>
+        <url-pattern>/auth/login</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AuthServlet</servlet-name>
+        <url-pattern>/auth/register</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AuthServlet</servlet-name>
+        <url-pattern>/auth/logout</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>PostServlet</servlet-name>
+        <url-pattern>/posts/*</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>CommentServlet</servlet-name>
+        <url-pattern>/comments/*</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>NotificationServlet</servlet-name>
+        <url-pattern>/notifications/*</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>PollServlet</servlet-name>
+        <url-pattern>/polls/vote</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>VoteServlet</servlet-name>
+        <url-pattern>/vote</url-pattern>
+    </servlet-mapping>
+
+    <!-- Show exception cause for 500 errors (remove or restrict in production) -->
+    <error-page>
+        <exception-type>java.lang.Throwable</exception-type>
+        <location>/common/error.jsp</location>
+    </error-page>
+
+</web-app>
